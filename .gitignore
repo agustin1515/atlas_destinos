@@ -1,0 +1,7 @@
+/writable/*
+!/writable/.htaccess
+!/writable/index.html
+
+.env
+/vendor
+node_modules

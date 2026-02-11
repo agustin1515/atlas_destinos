@@ -1,0 +1,334 @@
+/* ==== ESTILOS GENERALES ==== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI';
+  background: #f4f6f8;
+  color: #222;
+  line-height: 1.6;
+}
+
+.contenedor {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==== ENCABEZADO ==== */
+header {
+  background: #1f2937;
+  width: 100%;
+  border-bottom: 3px solid #1e90ff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.encabezado {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* IZQUIERDA */
+.izquierda h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #1e90ff,
+    0 0 10px #1e90ff,
+    0 0 20px #1e90ff;
+  letter-spacing: 2px;
+}
+
+.menu-principal {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  padding: 3px;
+  margin: 0;
+}
+
+.menu-principal a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  position: relative;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.menu-principal a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #1e90ff;
+  transition: width 0.3s ease;
+}
+
+.menu-principal a:hover {
+  color: #1e90ff;
+  transform: translateY(-2px);
+}
+
+.menu-principal a:hover::after {
+  width: 100%;
+}
+
+/* DERECHA */
+.derecha {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.derecha a {
+  background: #00173b;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 25px;
+  border-radius: 15px;
+  border: 3px solid transparent;
+  display: inline-block;
+  min-width: 90px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.derecha a:hover {
+  background: #1e90ff;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.derecha .cerrar-sesion {
+  background: #b91c1c;
+}
+
+.derecha .cerrar-sesion:hover {
+  background: #dc2626;
+}
+
+/* ==== PIE DE PÁGINA ==== */
+footer {
+  background: #1f2937;
+  color: #c9d1d9;
+  text-align: center;
+  padding: 25px 20px 10px 20px;
+  border-top: 3px solid #1e90ff;
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-contenido {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  max-width: 900px;
+  margin: 0 auto 15px auto;
+}
+
+.footer-seccion {
+  flex: 1 1 250px;
+  min-width: 230px;
+}
+
+.footer h3,
+.footer h4 {
+  color: #1e90ff;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.footer-redes {
+  list-style: none;
+  padding: 0;
+  margin-top: 6px;
+}
+
+.footer-redes li {
+  margin: 4px 0;
+}
+
+.footer-redes a {
+  text-decoration: none;
+  color: #c9d1d9;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-redes a:hover {
+  color: #1e90ff;
+}
+
+.footer-copy {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 8px;
+  font-size: 13px;
+  color: #c9d1d9;
+}
+
+/* ===== FORMULARIO ===== */
+.formulario-paquete {
+  max-width: 850px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .1);
+}
+
+.formulario-paquete h2 {
+  text-align: center;
+  font-size: 27px;
+  margin-bottom: 25px;
+  color: #1f2937;
+  font-weight: 800;
+  border-bottom: 2px solid #1e90ff;
+  padding-bottom: 10px;
+}
+
+.formulario-paquete form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form-contenedor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
+  row-gap: 18px;
+  align-items: start;
+}
+
+.form-contenedor label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  font-size: 14.5px;
+  margin-bottom: 6px;
+}
+
+input, select, textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 15px;
+  color: #222;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 13px;
+  transition: all .25s ease;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  height: 42px;
+  line-height: 42px;
+}
+
+input[type="file"] {
+  height: 42px;
+  padding: 8px 10px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #1e90ff;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(30, 144, 255, .3);
+  outline: none;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+  width: 100%;
+}
+
+label[for="descripcion_hotel"],
+label[for="descripcion_paquete"] {
+  font-weight: 600;
+  color: #333;
+  font-size: 14.5px;
+}
+
+/* ===== INCLUYE ===== */
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 12px 15px;
+  background: #fafafa;
+}
+
+legend {
+  font-weight: 700;
+  color: #1f2937;
+  padding: 0 6px;
+  font-size: 14.5px;
+}
+
+fieldset label {
+  display: inline-block;
+  margin: 0 22px 10px 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  border: 2px solid #1e90ff;
+  border-radius: 4px;
+  margin-right: 6px;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+input[type="checkbox"]:checked {
+  background: #1e90ff;
+}
+
+/* ===== BOTÓN ===== */
+button,
+input[type="submit"] {
+  background: linear-gradient(90deg, #1e90ff, #187bcd);
+  color: #fff;
+  border: none;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 65%;
+  align-self: center;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(30, 144, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background: linear-gradient(90deg, #187bcd, #0f65a5);
+  box-shadow: 0 6px 14px rgba(30, 144, 255, 0.4);
+  transform: translateY(-2px);
+}
