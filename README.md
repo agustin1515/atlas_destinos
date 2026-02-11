@@ -1,60 +1,159 @@
-# CodeIgniter 4 Framework
+# Atlas Destinos
 
-## What is CodeIgniter?
+Sistema web desarrollado en PHP utilizando el framework CodeIgniter 4.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Se trata de un proyecto académico que permite gestionar paquetes turísticos, usuarios y ventas dentro de una aplicación web con autenticación y panel administrativo.
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+---
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Descripción general
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+Atlas Destinos es una aplicación web que simula la administración de una agencia de viajes. Permite:
 
-## Important Change with index.php
+- Registro e inicio de sesión de usuarios.
+- Diferenciación de roles (administrador / usuario).
+- Gestión de paquetes turísticos.
+- Gestión de usuarios.
+- Registro y visualización de ventas.
+- Persistencia de datos mediante MySQL.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+La base de datos necesaria para el funcionamiento del sistema se encuentra incluida en el repositorio dentro de la carpeta `dataBase`.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+---
 
-**Please** read the user guide for a better explanation of how CI4 works!
+## Tecnologías utilizadas
 
-## Repository Management
+- PHP 8 o superior.
+- CodeIgniter 4.
+- MySQL.
+- HTML.
+- CSS.
+- Servidor local (por ejemplo XAMPP, WAMP u otro equivalente).
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+---
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+## Requisitos previos
 
-## Contributing
+Antes de intentar levantar el proyecto es necesario contar con:
 
-We welcome contributions from the community.
+- PHP 8+ correctamente instalado.
+- Un servidor web local (Apache recomendado).
+- Un servidor MySQL en ejecución.
+- Git (opcional, solo si se va a clonar el repositorio).
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+---
 
-## Server Requirements
+## Instalación paso a paso
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+### 1. Clonar el repositorio
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Ejecutar en la terminal:
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+git clone https://github.com/agustin1515/atlas_destinos.git
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+Esto descargará el proyecto completo en una carpeta llamada `atlas_destinos`.
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+---
+
+### 2. Ubicar el proyecto en el servidor local
+
+Mover la carpeta del proyecto dentro del directorio del servidor web.
+
+Si se utiliza XAMPP en Windows, la ruta habitual es:
+
+C:\xampp\htdocs\
+
+El proyecto debería quedar así:
+
+C:\xampp\htdocs\atlas_destinos
+
+---
+
+### 3. Crear la base de datos
+
+Acceder a MySQL (puede ser desde MySQL Workbench, consola o phpMyAdmin) y crear una nueva base de datos con el siguiente nombre:
+
+atlas_destinos
+
+Es importante que el nombre coincida con el que se configurará en el archivo `.env`.
+
+---
+
+### 4. Importar la base de datos
+
+Importar el archivo:
+
+dataBase/atlas_destinos.sql
+
+Este archivo contiene:
+
+- La creación de las tablas.
+- Las relaciones.
+- Datos de ejemplo.
+- Usuario administrador inicial.
+
+Una vez importado correctamente, la base quedará lista para ser utilizada por la aplicación.
+
+---
+
+### 5. Configurar el archivo `.env`
+
+Dentro del proyecto se encuentra el archivo `.env`.
+
+Es necesario configurar los datos de conexión a la base de datos modificando las siguientes líneas:
+
+database.default.hostname = localhost  
+database.default.database = atlas_destinos  
+database.default.username = root  
+database.default.password =  
+database.default.DBDriver = MySQLi  
+
+Si tu usuario o contraseña de MySQL son diferentes, deberás ajustarlos según tu configuración local.
+
+Guardar los cambios una vez editado.
+
+---
+
+### 6. Iniciar los servicios necesarios
+
+Asegurarse de que:
+
+- El servidor Apache esté en ejecución.
+- El servicio MySQL esté activo.
+
+Esto puede hacerse desde XAMPP u otro entorno que utilices.
+
+---
+
+### 7. Acceder al sistema
+
+Abrir el navegador e ingresar:
+
+http://localhost/atlas_destinos/public
+
+Es importante acceder a la carpeta `public`, ya que CodeIgniter 4 utiliza esta como punto de entrada del sistema.
+
+---
+
+## Usuario administrador de prueba
+
+El sistema incluye un usuario administrador de ejemplo:
+
+Email: admin@gmail.com  
+Password: 12345  
+
+Este usuario permite acceder al panel administrativo y gestionar el sistema.
+
+---
+
+## Consideración sobre seguridad
+
+Las contraseñas se almacenan en texto plano únicamente con fines académicos y simplificación del proyecto.
+
+En un entorno de producción real deberían almacenarse utilizando funciones de hash seguras como `password_hash()` y validarse con `password_verify()`.
+
+---
+
+## Autor
+
+Agustin Stele
